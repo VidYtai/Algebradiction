@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebradiction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for webkit browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; /* slate-900 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; /* slate-700 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; /* slate-600 */
+      }
+
+      html {
+        font-size: 100%; /* Base font size */
+        height: 100%; /* Ensure html takes full viewport height */
+        overflow: hidden; /* Prevent html from scrolling */
+      }
+
+      body {
+        height: 100%; /* Ensure body takes full viewport height */
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: #020617; /* slate-950 - Main dark background */
+        color: #e2e8f0; /* slate-200 - Default text color */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex; /* Make body a flex container */
+        flex-direction: column; /* Stack children (like #root) vertically */
+        overflow: hidden; /* Prevent body from scrolling */
+      }
+
+      #root {
+        display: flex; /* Make #root a flex container */
+        flex-direction: column; /* Stack its children (Header, main, Footer in App.tsx) vertically */
+        flex-grow: 1; /* Allow #root to grow and fill body */
+        overflow: hidden; /* Prevent #root itself from scrolling; its children will manage scroll */
+        min-height: 0; /* Important for nested flex scroll, ensures it doesn't overflow body */
+      }
+
+      /* Custom focus ring style */
+      *:focus-visible {
+        outline: 2px solid #38BDF8 !important; /* sky-400 */
+        outline-offset: 2px !important;
+      }
+      
+      .glassmorphic-surface {
+        background-color: rgba(30, 41, 59, 0.4); /* slate-800 with ~40% opacity */
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(51, 65, 85, 0.5); /* slate-700 with 50% opacity */
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+      
+      .courtroom-gradient-bg {
+        /* More subtle gradient or a solid very dark color if preferred for minimalism */
+        background-image: radial-gradient(circle at 50% 0%, rgba(15, 23, 42, 0.6) 0%, #020617 75%); /* slate-900 transparent to slate-950 */
+      }
+
+      .tutorial-highlight-target {
+        /* Modernized glow effect using sky blue accent */
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.6), /* sky-400 based glow - inner */
+                    0 0 12px 5px rgba(56, 189, 248, 0.3);  /* sky-400 based glow - outer */
+        transition: box-shadow 0.3s ease-in-out;
+        border-radius: 8px; /* Optional: ensure glow conforms to rounded corners if any */
+      }
+      
+      /* Retaining fade-in for general use */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.5.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
